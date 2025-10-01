@@ -4,7 +4,7 @@
 <div class="card shadow-sm">
     <div class="card-body">
         <h3 class="card-title">Edit Stock</h3>
-        <form method="post" action="/admin/stock/update/<?= $stock['stock_id'] ?>">
+        <form method="post" action="/gudang/stock/update/<?= $stock['stock_id'] ?>">
             <?= csrf_field() ?>
             <div class="mb-3">
                 <label class="form-label">Stock Name</label>
@@ -17,7 +17,7 @@
                     required>
             </div>
             <button class="btn btn-primary">Update</button>
-            <a href="/admin/stock" class="btn btn-secondary">Cancel</a>
+            <a href="/gudang/stock" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 </div>

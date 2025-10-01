@@ -4,7 +4,7 @@
 <div class="card shadow-sm">
     <div class="card-body">
         <h3 class="card-title">Manage Stock</h3>
-        <a href="/admin/stocks/create" class="btn btn-primary mb-3">+ Add Stock</a>
+        <a href="/gudang/stocks/create" class="btn btn-primary mb-3">+ Add Stock</a>
 
         <?php if (session()->getFlashdata('success')): ?>
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
@@ -26,8 +26,8 @@
                         <td><?= esc($s['stock_name']) ?></td>
                         <td><?= esc($s['quantity']) ?></td>
                         <td>
-                            <a href="/admin/stocks/edit/<?= $s['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="/admin/stocks/delete/<?= $s['id'] ?>" class="btn btn-sm btn-danger"
+                            <a href="/gudang/stocks/edit/<?= $s['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="/gudang/stocks/delete/<?= $s['id'] ?>" class="btn btn-sm btn-danger"
                                 onclick="return confirm('Delete this stock?')">Delete</a>
                         </td>
                     </tr>

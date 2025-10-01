@@ -19,15 +19,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <?php if (session()->get('role') === 'admin'): ?>
-                        <li class="nav-item"><a class="nav-link" href="/admin/courses">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/admin/students">Students</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mission-4/admin">Mission 4</a></li>
-
-                    <?php elseif (session()->get('role') === 'student'): ?>
-                        <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/courses/my">My Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mission-4/courses">Mission 4</a></li>
+                    <?php if (session()->get('role') === 'gudang'): ?>
+                        <li class="nav-item"><a class="nav-link" href="/gudang/stocks">Stocks</a></li>
+                    <?php elseif (session()->get('role') === 'dapur'): ?>
+                        <li class="nav-item"><a class="nav-link" href="/dapur/courses">Stock Request</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dapur/courses/my">Stock Status</a></li>
 
 
                     <?php endif; ?>
