@@ -27,8 +27,12 @@
                 <?php foreach ($stocks as $i => $s): ?>
                     <tr>
                         <td><?= $i + 1 ?></td>
-                        <td><?= esc($s['stock_name']) ?></td>
-                        <td><?= esc($s['quantity']) ?></td>
+                        <td><?= esc($s['nama']) ?></td>
+                        <td><?= esc($s['kategori']) ?></td>
+                        <td><?= esc($s['jumlah']) ?> <?= esc($s['satuan']) ?></td>
+                        <td><?= esc($s['tanggal_masuk']) ?></td>
+                        <td><?= esc($s['tanggal_kadaluarsa']) ?></td>
+                        <td><?= esc($s['status']) ?></td>
                         <td>
                             <a href="/gudang/stocks/edit/<?= $s['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
                             <a href="/gudang/stocks/delete/<?= $s['id'] ?>" class="btn btn-sm btn-danger"

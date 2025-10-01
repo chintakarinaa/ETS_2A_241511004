@@ -7,16 +7,16 @@
         <form method="post" action="/gudang/stocks/store">
             <?= csrf_field() ?>
             <div class="mb-3">
-                <label class="form-label">Stock Name</label>
-                <input type="text" name="stock_name" class="form-control" required>
+                <label class="form-label">Nama</label>
+                <input type="text" name="nama" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Category</label>
-                <input type="text" name="category" class="form-control" required>
+                <label class="form-label">Kategori</label>
+                <input type="text" name="kategori" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Quantity</label>
-                <input type="number" name="quantity" class="form-control" required>
+                <label class="form-label">Jumlah</label>
+                <input type="number" name="jumlah" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Satuan</label>
