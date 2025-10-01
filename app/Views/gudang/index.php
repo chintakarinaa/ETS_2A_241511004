@@ -20,7 +20,6 @@
                     <th>Satuan</th>
                     <th>Tanggal Masuk</th>
                     <th>Tanggal Kadaluarsa</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>

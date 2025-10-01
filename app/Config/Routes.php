@@ -16,4 +16,6 @@ $routes->group('gudang', ['filter' => 'role:gudang'], function ($routes) {
     $routes->get('stocks', 'gudang\Stocks::index');
     $routes->get('stocks/create', 'gudang\Stocks::create');
     $routes->post('stocks/store', 'gudang\Stocks::store');
+    $routes->get('stocks/edit/(:num)', 'gudang\Stocks::edit/$1');
+    $routes->post('stocks/update/(:num)', 'gudang\Stocks::update/$1');
 });

@@ -51,4 +51,30 @@ class Stocks extends BaseController
 
         return redirect()->to('/gudang/stocks')->with('success', 'Stock added successfully!');
     }
+
+    public function edit($id)
+    {
+        $stockModel = new StockModel();
+        $data['stock'] = $stockModel->find($id);
+        return view('gudang/stocks/edit', $data);
+    }
+
+    public function update($id)
+    {
+        $stockModel = new StockModel();
+
+        $jumlah = (int)$this->request->getPost('jumlah'); 
+
+        // Validasi jumlah
+        if ($jumlah < 0) {
+            return redirect()->back()->with('error', 'Jumlah stok tidak boleh kurang dari 0!');
+        }
+
+        // Hanya update kolom jumlah
+        $stockModel->update($id, [
+            'jumlah' => $jumlah
+        ]);
+
+        return redirect()->to('/gudang/stocks')->with('success', 'Jumlah stok berhasil diupdate!');
+    }
 }
