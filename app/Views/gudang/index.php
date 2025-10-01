@@ -15,7 +15,11 @@
                 <tr>
                     <th>#</th>
                     <th>Stock Name</th>
+                    <th>Category</th>
                     <th>Quantity</th>
+                    <th>Satuan</th>
+                    <th>Tanggal Masuk</th>
+                    <th>Tanggal Kadaluarsa</th>
                     <th>Action</th>
                 </tr>
             </thead>
