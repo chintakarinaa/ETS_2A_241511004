@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\gudang;
 
 use App\Controllers\BaseController;
 use App\Models\CourseModel;
@@ -13,12 +13,12 @@ class Courses extends BaseController
         $stockModel = new StockModel();
         $data['stocks'] = $stockModel->findAll();
         $data['title'] = 'Manage Stocks';
-        return view('admin/stocks/index', $data);
+        return view('gudang/stocks/index', $data);
     }
 
     public function create()
     {
-        return view('admin/stocks/create', ['title' => 'Add Stock']);
+        return view('gudang/stocks/create', ['title' => 'Add Stock']);
     }
 
     public function store()
@@ -35,14 +35,14 @@ class Courses extends BaseController
             'status' => $this->request->getPost('status'),
         ]);
 
-        return redirect()->to('/admin/stocks')->with('success', 'Stock added successfully!');
+        return redirect()->to('/gudang/stocks')->with('success', 'Stock added successfully!');
     }
 
     public function edit($id)
     {
         $stockModel = new StockModel();
         $data['stock'] = $stockModel->find($id);
-        return view('admin/stocks/edit', $data);
+        return view('gudang/stocks/edit', $data);
     }
 
     public function update($id)
@@ -59,7 +59,7 @@ class Courses extends BaseController
             'status' => $this->request->getPost('status'),
         ]);
 
-        return redirect()->to('/admin/stocks')->with('success', 'Stock updated!');
+        return redirect()->to('/gudang/stocks')->with('success', 'Stock updated!');
     }
 
     public function delete($id)
@@ -67,6 +67,6 @@ class Courses extends BaseController
         $stockModel = new StockModel();
         $stockModel->delete($id);
 
-        return redirect()->to('/admin/stocks')->with('success', 'Stock deleted!');
+        return redirect()->to('/gudang/stocks')->with('success', 'Stock deleted!');
     }
 }

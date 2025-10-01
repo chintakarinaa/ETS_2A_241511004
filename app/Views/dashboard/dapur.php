@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <div class="card shadow-sm">
     <div class="card-body">
-        <h2 class="card-title">Welcome, Student</h2>
+        <h2 class="card-title">Welcome.</h2>
         <p class="text-muted">Pilih menu di bawah ini:</p>
 
         <?php if (session()->getFlashdata('error')): ?>
@@ -21,9 +21,10 @@
 
         <ul class="list-group mt-3">
             <li class="list-group-item">
-                <a href="/courses" class="text-decoration-none">📖 View Courses & Enroll</a>
+                <a href="/courses" class="text-decoration-none">Buat permintaan Bahan</a>
             </li>
-            <li class="list-group-item"><a href="/mission-4/courses" class="text-decoration-none">👨‍🎓 Mission 4 </a>
+            <li class="list-group-item">
+                <a href="/mission-4/courses" class="text-decoration-none">Lihat Status Permintaan</a>
             </li>
         </ul>
     </div>

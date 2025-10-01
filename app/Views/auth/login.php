@@ -24,9 +24,9 @@
             <form method="post" action="<?= site_url('login') ?>">
                 <?= csrf_field() ?>
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username"
-                        placeholder="Masukkan username" required>
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name    "
+                        placeholder="Masukkan name" required>
                 </div>
 
                 <div class="mb-3">
