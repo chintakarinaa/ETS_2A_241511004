@@ -6,7 +6,8 @@
         <h2 class="card-title">Welcome.</h2>
         <p class="text-muted">Kelola data di bawah ini:</p>
         <ul class="list-group mt-3">
-            <li class="list-group-item"><a href="/gudang/stocks" class="text-decoration-none"> Manage Stocks</a></li>
+            <li class="list-group-item"><a href="/gudang/stocks" class="text-decoration-none">Manage Stocks</a></li>
+            <li class="list-group-item"><a href="/gudang/requests" class="text-decoration-none">Proses Permintaan Dapur</a></li>
         </ul>
     </div>
 </div>

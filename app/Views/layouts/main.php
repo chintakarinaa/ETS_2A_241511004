@@ -21,6 +21,7 @@
                 <ul class="navbar-nav ms-auto">
                     <?php if (session()->get('role') === 'gudang'): ?>
                         <li class="nav-item"><a class="nav-link" href="/gudang/stocks">Stocks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/gudang/requests">Requests</a></li>
                     <?php elseif (session()->get('role') === 'dapur'): ?>
                         <li class="nav-item"><a class="nav-link" href="/dapur/requests/create">Buat Permintaan</a></li>
                         <li class="nav-item"><a class="nav-link" href="/dapur/requests">Status Permintaan</a></li>
@@ -62,7 +63,6 @@
         }
 
         <?php if (session()->getFlashdata('success')): ?>
-        // Cek dulu apakah kamu mau tombol 2 atau 1 (bisa ditambah flashdata khusus)
         <?php if (session()->getFlashdata('success_two_buttons')): ?>
         Swal.fire({
             title: 'Berhasil!',

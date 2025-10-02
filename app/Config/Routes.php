@@ -19,6 +19,9 @@ $routes->group('gudang', ['filter' => 'role:gudang'], function ($routes) {
     $routes->get('stocks/edit/(:num)', 'gudang\Stocks::edit/$1');
     $routes->post('stocks/update/(:num)', 'gudang\Stocks::update/$1');
     $routes->get('stocks/delete/(:num)', 'gudang\Stocks::delete/$1');
+    $routes->get('requests', 'gudang\Requests::index'); 
+    $routes->post('requests/approve/(:num)', 'gudang\Requests::approve/$1');
+    $routes->post('requests/reject/(:num)', 'gudang\Requests::reject/$1');
 });
 
 $routes->group('dapur', ['filter' => 'role:dapur'], function ($routes) {
