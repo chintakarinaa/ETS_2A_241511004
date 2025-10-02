@@ -10,6 +10,10 @@
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
 
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+        <?php endif; ?>
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -35,8 +39,20 @@
                         <td><?= esc($s['status']) ?></td>
                         <td>
                             <a href="/gudang/stocks/edit/<?= $s['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="/gudang/stocks/delete/<?= $s['id'] ?>" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Delete this stock?')">Delete</a>
+
+                            <?php if ($s['status'] === 'kadaluarsa'): ?>
+                                <button type="button"
+                                    class="btn btn-sm btn-danger"
+                                    onclick="confirmDelete(<?= $s['id'] ?>)">
+                                    Delete
+                                </button>
+                            <?php else: ?>
+                            <button type="button"
+                                class="btn btn-sm btn-danger"
+                                onclick="confirmDelete(<?= $s['id'] ?>, '<?= esc($s['nama']) ?>', '<?= esc($s['kategori']) ?>', '<?= esc($s['tanggal_kadaluarsa']) ?>')">
+                                Delete
+                            </button>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -30,7 +30,7 @@
                 <label class="form-label">Tanggal Kadaluarsa</label>
                 <input type="date" name="tanggal_kadaluarsa" class="form-control" required>
             </div>
-            <button class="btn btn-success" onclick="return confirm('Yakin mau menambahkan data ini?')">Save</button>
+            <button class="btn btn-success" onclick="return confirmSave(this.form)">Save</button>
             <a href="/gudang/stocks" class="btn btn-secondary">Cancel</a>
         </form>
     </div>

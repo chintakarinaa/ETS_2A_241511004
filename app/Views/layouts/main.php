@@ -39,7 +39,47 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/app.js"></script>
+    <script>
+        function confirmDelete(id, nama, kategori, kadaluarsa) 
+        {
+            Swal.fire({
+                title: 'Yakin mau hapus?',
+                html: `
+                    <p><b>Nama:</b> ${nama}</p>
+                    <p><b>Kategori:</b> ${kategori}</p>
+                    <p><b>Kadaluarsa:</b> ${kadaluarsa}</p>
+                `,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/gudang/stocks/delete/' + id;
+                }
+            });
+        }
+
+        <?php if (session()->getFlashdata('success')): ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '<?= session()->getFlashdata('success') ?>'
+        });
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: '<?= session()->getFlashdata('error') ?>'
+        });
+        <?php endif; ?>
+    </script>
 
 </body>
 

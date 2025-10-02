@@ -15,7 +15,7 @@
                 <label class="form-label">Jumlah</label>
                 <input type="number" name="jumlah" value="<?= esc($stock['jumlah']) ?>" class="form-control" required>
             </div>
-            <button class="btn btn-primary" onclick="return confirm('Yakin mau mengupdate data ini?')">Update</button>
+            <button class="btn btn-success" onclick="return confirmSave(this.form)">Save</button>
             <a href="/gudang/stocks" class="btn btn-secondary">Cancel</a>
         </form>
     </div>

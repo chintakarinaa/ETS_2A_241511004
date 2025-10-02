@@ -23,11 +23,14 @@ class Stocks extends BaseController
             } else {
                 $s['status'] = 'tersedia';
             }
-        }
 
+            // update ke DB biar status sinkron
+            $stockModel->update($s['id'], ['status' => $s['status']]);
+        }
         $data['stocks'] = $stocks;
-        $data['title'] = 'Manage Stocks';
+        $data['title']  = 'Manage Stocks';
         return view('gudang/stocks/index', $data);
+
     }
 
     public function create()
@@ -70,11 +73,38 @@ class Stocks extends BaseController
             return redirect()->back()->with('error', 'Jumlah stok tidak boleh kurang dari 0!');
         }
 
-        // Hanya update kolom jumlah
+        // Cuman update kolom jumlah
         $stockModel->update($id, [
             'jumlah' => $jumlah
         ]);
 
         return redirect()->to('/gudang/stocks')->with('success', 'Jumlah stok berhasil diupdate!');
+        }
+
+        public function delete($id)
+        {
+            $stockModel = new StockModel();
+            $stock = $stockModel->find($id);
+
+            $today = date('Y-m-d');
+            if ($stock['jumlah'] == 0) {
+                $stock['status'] = 'habis';
+            } elseif ($today >= $stock['tanggal_kadaluarsa']) {
+                $stock['status'] = 'kadaluarsa';
+            } elseif ((strtotime($stock['tanggal_kadaluarsa']) - strtotime($today)) / 86400 <= 3) {
+                $stock['status'] = 'segera kadaluarsa';
+            } else {
+                $stock['status'] = 'tersedia';
+            }
+
+        if ($stock['status'] !== 'kadaluarsa') 
+            {
+            return redirect()->to('/gudang/stocks')->with('error', 'Data tidak bisa dihapus karena belum kadaluarsa');
+        }
+        
+        $stockModel->delete($id);
+        return redirect()->to('/gudang/stocks')->with('success', 'Stock berhasil dihapus!');
+
     }
+
 }
