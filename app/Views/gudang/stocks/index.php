@@ -43,7 +43,7 @@
                             <?php if ($s['status'] === 'kadaluarsa'): ?>
                                 <button type="button"
                                     class="btn btn-sm btn-danger"
-                                    onclick="confirmDelete(<?= $s['id'] ?>)">
+                                    onclick="confirmDelete(<?= $s['id'] ?>, '<?= esc($s['nama']) ?>', '<?= esc($s['kategori']) ?>', '<?= esc($s['tanggal_kadaluarsa']) ?>')">
                                     Delete
                                 </button>
                             <?php else: ?>

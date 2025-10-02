@@ -22,10 +22,8 @@
                     <?php if (session()->get('role') === 'gudang'): ?>
                         <li class="nav-item"><a class="nav-link" href="/gudang/stocks">Stocks</a></li>
                     <?php elseif (session()->get('role') === 'dapur'): ?>
-                        <li class="nav-item"><a class="nav-link" href="/dapur/courses">Stock Request</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/dapur/courses/my">Stock Status</a></li>
-
-
+                        <li class="nav-item"><a class="nav-link" href="/dapur/requests/create">Buat Permintaan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dapur/requests">Status Permintaan</a></li>
                     <?php endif; ?>
                     <li class="nav-item"><a class="nav-link text-danger" href="/logout">Logout</a></li>
                 </ul>
@@ -42,8 +40,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/app.js"></script>
     <script>
-        function confirmDelete(id, nama, kategori, kadaluarsa) 
-        {
+        function confirmDelete(id, nama, kategori, kadaluarsa) {
             Swal.fire({
                 title: 'Yakin mau hapus?',
                 html: `
@@ -65,11 +62,29 @@
         }
 
         <?php if (session()->getFlashdata('success')): ?>
+        // Cek dulu apakah kamu mau tombol 2 atau 1 (bisa ditambah flashdata khusus)
+        <?php if (session()->getFlashdata('success_two_buttons')): ?>
+        Swal.fire({
+            title: 'Berhasil!',
+            text: '<?= session()->getFlashdata('success') ?>',
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonText: 'Lihat Status Permintaan',
+            cancelButtonText: 'Kembali ke Dashboard',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/dapur/requests";
+            } else {
+                window.location.href = "/";
+            }
+        });
+        <?php else: ?>
         Swal.fire({
             icon: 'success',
             title: 'Berhasil!',
             text: '<?= session()->getFlashdata('success') ?>'
         });
+        <?php endif; ?>
         <?php endif; ?>
 
         <?php if (session()->getFlashdata('error')): ?>

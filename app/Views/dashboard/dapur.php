@@ -21,10 +21,10 @@
 
         <ul class="list-group mt-3">
             <li class="list-group-item">
-                <a href="/courses" class="text-decoration-none">Buat permintaan Bahan</a>
+                <a href="/dapur/requests/create" class="text-decoration-none">Buat permintaan Bahan</a>
             </li>
             <li class="list-group-item">
-                <a href="/mission-4/courses" class="text-decoration-none">Lihat Status Permintaan</a>
+                <a href="/dapur/requests" class="text-decoration-none">Lihat Status Permintaan</a>
             </li>
         </ul>
     </div>

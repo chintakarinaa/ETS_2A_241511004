@@ -20,3 +20,9 @@ $routes->group('gudang', ['filter' => 'role:gudang'], function ($routes) {
     $routes->post('stocks/update/(:num)', 'gudang\Stocks::update/$1');
     $routes->get('stocks/delete/(:num)', 'gudang\Stocks::delete/$1');
 });
+
+$routes->group('dapur', ['filter' => 'role:dapur'], function ($routes) {
+    $routes->get('requests', 'dapur\Requests::index');
+    $routes->get('requests/create', 'dapur\Requests::create');
+    $routes->post('requests/store', 'dapur\Requests::store');
+});
