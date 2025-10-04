@@ -10,6 +10,31 @@ use App\Models\StockModel;
 class Requests extends BaseController
 {
 
+    public function index()
+    {
+        $permintaanModel = new \App\Models\PermintaanModel();
+        $detailModel     = new \App\Models\PermintaanDetailModel();
+        $stockModel      = new \App\Models\StockModel();
+
+        $permintaan = $permintaanModel->findAll();
+
+        foreach ($permintaan as &$p) {
+            $details = $detailModel->where('permintaan_id', $p['id'])->findAll();
+
+            foreach ($details as &$d) {
+                $stok = $stockModel->find($d['bahan_id']);
+                $d['nama_bahan'] = $stok['nama'] ?? 'Unknown';
+                $d['satuan']     = $stok['satuan'] ?? '';
+            }
+
+            $p['detail_bahan'] = $details;
+        }
+
+        return view('dapur/index', [
+            'permintaan' => $permintaan
+        ]);
+    }
+
     public function create()
     {
         $stockModel = new StockModel();

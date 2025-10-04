@@ -8,5 +8,5 @@ class PermintaanModel extends Model
 {
     protected $table = 'permintaan';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['pemohon_id', 'tgl_masak', 'menu_makan', 'jumlah_porsi', 'status', 'created_at'];
+    protected $allowedFields = ['pemohon_id', 'tgl_masak', 'menu_makan', 'jumlah_porsi', 'status', 'alasan_penolakan', 'created_at'];
 }

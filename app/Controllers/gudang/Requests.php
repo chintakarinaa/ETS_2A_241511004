@@ -82,8 +82,8 @@ class Requests extends BaseController
 
         $permintaanModel->update($id, [
             'status' => 'ditolak',
+            'alasan_penolakan' => $alasan
         ]);
-
-        return redirect()->to('/gudang/requests')->with('success', 'Permintaan berhasil ditolak.');
+        return redirect()->to('/gudang/requests')->with('success', 'Permintaan berhasil ditolak.')->with('alasan_penolakan', $alasan);
     }
 }
